@@ -12,49 +12,34 @@
 <body>
 
   <section class="container">
-    <h1>Calculadora</h1>
-    <table class="calculadora">
-      <tr>
-        <td colspan="4"><input type="text" class="display"></td>
-      </tr>
-      <tr>
-        <td><button class="btn btn-clear">C</button></td>
-        <td><button class="btn btn-num">(</button></td>
-        <td><button class="btn btn-num">)</button></td>
-        <td><button class="btn btn-num">/</button></td>
-      </tr>
+    <h1>Formulario de Cadastro</h1>
+    <ul>
+      <li>Nenhum campo pode estar vazio</li>
+      <li>Usuario so podera conter letras e/ou numeros</li>
+      <li>Usuario deverar ter entre 3 e 12 caracteres</li>
+      <li>Senha precisa ter entre 6 e 12 caracteres</li>
+    </ul>
 
-      <tr>
-        <td><button class="btn btn-num">7</button></td>
-        <td><button class="btn btn-num">8</button></td>
-        <td><button class="btn btn-num">9</button></td>
-        <td><button class="btn btn-num">*</button></td>
-      </tr>
-
-      <tr>
-        <td><button class="btn btn-num">4</button></td>
-        <td><button class="btn btn-num">5</button></td>
-        <td><button class="btn btn-num">6</button></td>
-        <td><button class="btn btn-num">+</button></td>
-      </tr>
-
-      <tr>
-        <td><button class="btn btn-num">1</button></td>
-        <td><button class="btn btn-num">2</button></td>
-        <td><button class="btn btn-num">3</button></td>
-        <td><button class="btn btn-num">-</button></td>
-      </tr>
-
-      <tr>
-        <td><button class="btn btn-num">.</button></td>
-        <td><button class="btn btn-num">0</button></td>
-        <td><button class="btn btn-del">&laquo;</button></td>
-        <td><button class="btn btn-eq">=</button></td>
-      </tr>
-    </table>
+    <form action="/" method="POST" class="formulario">
+      <label>Nome</label>
+      <input type="text" class="nome validar">
+      <label>Sobrenome</label>
+      <input type="text" class="sobrenome validar">
+      <label>CPF</label>
+      <input type="text" class="cpf validar">
+      <label>Usuario</label>
+      <input type="text" class="usuario validar">
+      <label>senha</label>
+      <input type="password" class="senha validar">
+      <label>Repetir Senha</label>
+      <input type="password" class="repetir-senha validar">
+      <button type="submit">Enviar</button>
+    </form>
+   
   </section>
-
   <script src="./assets/js/main.js"></script>
+  <script src="./assets/js/validaCpf.js"></script>
+
 </body>
 
 </html>
