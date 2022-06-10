@@ -1,0 +1,1 @@
+{"version":3,"file":"bundle.js","mappings":";;;;;AAAAA,OAAO,CAACC,GAAR,CAAY,YAAZ;AACA,IAAMC,CAAC,GAAG,CAAE,GAAF,EAAO,GAAP,EAAY,GAAZ,CAAV;AACAF,OAAO,CAACC,GAAR,CAAYC,CAAZ,E","sources":["webpack://web/./src/index.js"],"sourcesContent":["console.log('salve bora')\nconst a = [ 'a', 'b', 'c' ];\nconsole.log(a)"],"names":["console","log","a"],"sourceRoot":""}
