@@ -1,0 +1,1 @@
+module.exports = 'SALVE O MUNDO';
