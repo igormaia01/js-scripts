@@ -1,10 +1,8 @@
 require('dotenv').config();
-
 const express = require('express');
 const app = express();
 const mongoose = require('mongoose');
-const { middlewareGlobal }  = require('./src/middlewares/middleware');
-
+const { middlewareGlobal, checkCsrfError, csrfMiddleware }  = require('./src/middlewares/middleware');
 
 mongoose.connect(process.env.CONNECTIONSTRING, { useNewUrlParser: true })
     .then(() => {
@@ -16,13 +14,15 @@ mongoose.connect(process.env.CONNECTIONSTRING, { useNewUrlParser: true })
 const session = require('express-session');
 const MongoStore = require('connect-mongo');
 const flash = require('connect-flash');
-
 const routes = require('./routes');
 const path = require('path');
+const helmet = require('helmet');
+const csrf = require('csurf');
 
 
 app.use(express.urlencoded({ extended: true })); // serve para tratar o body das requisicoes
 app.use(express.static(path.resolve(__dirname, 'public'))); // conteudos estaticos
+app.use(helmet());
 
 const sessionOptions = session({
     secret: 'dsadsa@!DSADsadsa213412321',
@@ -35,12 +35,17 @@ const sessionOptions = session({
     }
 });
 
-app.use(middlewareGlobal);
 app.use(sessionOptions);
 app.use(flash());
 
+
 app.set('views', path.resolve(__dirname, 'src', 'views')); // views
 app.set('view engine', 'ejs');
+app.use(csrf());
+app.use(middlewareGlobal);
+app.use(checkCsrfError);
+app.use(csrfMiddleware);
+
 app.use(routes);
 
 app.on('pronto', () => {
