@@ -1,20 +1,19 @@
-<!DOCTYPE html>
-<html lang="pt-BR">
+<%- include('includes/head');%>
 
-<head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <meta http-equiv="X-UA-Compatible" content="ie=edge">
-  <title>Modelo</title>
-</head>
+<section class="container">
+  <h1>
+    <% if(typeof titulo !== 'undefined') { %>
+        <%= titulo %>
+    <% } else { %>
+      O titulo nao foi enviado.
+    <% }%>
+  </h1>
+  <%= umaVariavelLocal %>
+  <h2>
+      <% numeros.forEach(num => { %>
+        <%= num%> <br>
+      <% });%>
+  </h2>
+</section>
 
-<body>
-
-  <section class="container">
-    <h1>Salve salve familia</h1>
-  </section>
-
-  <script src="./assets/js/bundle.js"></script>
-</body>
-
-</html>
+<%- include('includes/footer');%>
